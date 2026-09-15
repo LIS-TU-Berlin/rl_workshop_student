@@ -23,7 +23,7 @@ cd rl_workshop_student
 
    **Option B -- download a pre-built image**.
    ```bash
-   curl -L -o rl-workshop-image.tar <URL>
+   curl -L -o rl-workshop-image.tar https://tubcloud.tu-berlin.de/s/ZHDX4mmnpwEHSBy
    docker load -i rl-workshop-image.tar
    ```
 
