@@ -23,14 +23,15 @@ cd rl_workshop_student
 
    **Option B -- download a pre-built image**.
    ```bash
-   curl -L -o rl-workshop-image.tar https://tubcloud.tu-berlin.de/s/ZHDX4mmnpwEHSBy
+   # Download rl-workshop-image.tar https://tubcloud.tu-berlin.de/s/ZHDX4mmnpwEHSBy and place in rl_workshop_student
    docker load -i rl-workshop-image.tar
    ```
 
-   Then, either way, start the container:
+   Then, either way, start the container
    ```bash
-   docker compose run --rm workshop
+   docker compose run --rm --service-ports workshop
    ```
+   
 3. Verify the installation
 ```bash
 uv run pytest tests/test_docker_smoke.py
@@ -38,35 +39,37 @@ uv run pytest tests/test_docker_smoke.py
 
 ## Training and Evaluation
 
+Rendering is unreliable in Docker, so videos are turned off.
+
 ### 1. Run a trained policy
 
 ```bash
-# uv run python scripts/eval.py <tag>
-uv run python scripts/eval.py 260910-190202-disc_push-task4-sbTD3-seed100
+# uv run python scripts/eval.py <tag> --no-video
+uv run python scripts/eval.py 260910-190202-disc_push-task4-sbTD3-seed100 --no-video
 ```
 
 ### 2. Train a naive policy
 ```bash
 # Trains using the sparse reward only
-uv run scripts/train.py configs/disc_push_task0.yaml
+uv run scripts/train.py configs/disc_push_task0.yaml RL.make_video=false
 ```
 
 ### 3. Train using a dense reward function
 ```bash
 # Uses reward_fct_dense1() and a fixed goal
-uv run scripts/train.py configs/disc_push_task1.yaml
+uv run scripts/train.py configs/disc_push_task1.yaml RL.make_video=false
 
 # Uses reward_fct_dense2() and a fixed goal
-uv run scripts/train.py configs/disc_push_task2.yaml
+uv run scripts/train.py configs/disc_push_task2.yaml RL.make_video=false
 ```
 
 ### 4. Train using a sparse reward function with state sampling/curriculum
 ```bash
 # Random goal, with finger initialized near object
-uv run scripts/train.py configs/disc_push_task3.yaml
+uv run scripts/train.py configs/disc_push_task3.yaml RL.make_video=false
 
 # Random goal, with finger initialized randomly
-uv run scripts/train.py configs/disc_push_task4.yaml
+uv run scripts/train.py configs/disc_push_task4.yaml RL.make_video=false
 ```
 
 ### 3. View Tensorboard logs
