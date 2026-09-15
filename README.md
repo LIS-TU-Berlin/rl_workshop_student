@@ -12,7 +12,7 @@
 **Installation**:
 1. Clone the repository and `cd` into it.
 ```bash
-git clone git@github.com:LIS-TU-Berlin/rl_workshop_student.git
+git clone https://github.com/LIS-TU-Berlin/rl_workshop_student.git
 cd rl_workshop_student
 ```
 2. Run `uv sync` to create a `.venv/` and install all dependencies pinned in `uv.lock`.

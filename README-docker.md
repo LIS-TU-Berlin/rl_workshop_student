@@ -11,7 +11,7 @@
 **Installation**:
 1. Clone the repository and `cd` into it.
 ```bash
-git clone git@github.com:LIS-TU-Berlin/rl_workshop_student.git
+git clone https://github.com/LIS-TU-Berlin/rl_workshop_student.git
 cd rl_workshop_student
 ```
 2. Get the image, either by building it yourself or downloading a pre-built copy:
@@ -31,7 +31,7 @@ cd rl_workshop_student
    ```bash
    docker compose run --rm --service-ports workshop
    ```
-   
+
 3. Verify the installation
 ```bash
 uv run pytest tests/test_docker_smoke.py
