@@ -5,7 +5,8 @@
 ### Windows / macOS Docker installation
 
 **Prerequisites**:
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose) or [Docker Engine (on Linux)](https://docs.docker.com/engine/install)
+
 
 **Installation**:
 1. Clone the repository and `cd` into it.
@@ -41,7 +42,7 @@ uv run pytest tests/test_installation_smoke.py
 
 ```bash
 # uv run python scripts/eval.py <tag>
-uv run python scripts/eval.py 260910-174709-disc_push-task3-sbTD3-seed100
+uv run python scripts/eval.py 260910-190202-disc_push-task4-sbTD3-seed100
 ```
 
 ### 2. Train a naive policy

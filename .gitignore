@@ -1,12 +1,14 @@
 __pycache__/
 *.egg-info
 .venv/
-runs/
+runs/*
+!runs/260910-190202-disc_push-task4-sbTD3-seed100
 tensorboard/
 tmp*
 z.*
 *~
 .vscode/
 slides/*
-!slides/slides.tex
+!slides/build/
+!slides/build/slides.pdf
 *.tar

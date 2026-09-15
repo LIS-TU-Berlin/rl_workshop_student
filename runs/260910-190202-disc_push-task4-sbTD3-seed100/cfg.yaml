@@ -1,0 +1,72 @@
+tag: 260910-190202-disc_push-task4-sbTD3-seed100
+scenario: disc_push
+task: task4
+seed: 100
+files:
+  scene_yaml: scenes/disc_push.yml
+Gym:
+  reward_fct_name: reward_fct_sparse
+  num_scenes: 20
+  warp_worlds: 0
+  friction: 0.8 0.1 0.1
+  solref: 0.01 1.
+  min_start_sep: 0.2
+  obj_upright: true
+  view_mj: false
+  tau_sim: 0.001
+  tau_step: 0.05
+  time_limit: 1.0
+  goal_feat_eps: 0.04
+  feat_dims:
+  - 0
+  - 1
+  reward_success: 1.0
+  reward_delta_dist: 1.0
+  reward_robot_obj_delta_dist: 0.5
+  reward_clip_dist: null
+  reward_robot_obj_clip_dist: null
+  reward_robot_point: fing
+  reward_robot_reference: obj_base
+  obs_pos_scale: 1.0
+  obs_pos_offset: []
+  obs_vel_scale: 0.1
+  obs_referr_scale: 10.0
+  bounds_margin: 0.5
+  eff_action: none
+  goal_feat_points:
+  - obj
+  - obj_base
+  action_scale: 1.0
+  observation_points:
+  - - fing
+    - obj
+RL:
+  RL_method: sbTD3
+  fixed_goal: false
+  starts_goals_fct_name: getStartsGoals_curriculum
+  T_block: 3000
+  T_curr: 15000
+  T_end: 60000
+  finger_start_mode: random
+  nominal_time_limit: 1.0
+  discount_half_life: 1.0
+  eval_time_limit: 5.0
+  eval_episodes: 200
+TD3:
+  device: cpu
+  num_threads: 8
+  timesteps_before_training: 5000
+  train_logging_freq: 50
+  periodic_eval_freq: 1000
+  periodic_eval_episodes: 20
+  periodic_eval_time_limit: 2.0
+  learning_rate: 0.001
+  batch_size: 2000
+  buffer_size: 200000
+  target_update_rate: 250
+  exploration_noise: 0.05
+  target_policy_noise: 0.05
+  noise_clip: 0.1
+  policy_freq: 2
+  target_tau: 0.005
+  HER_ratio: 0.5

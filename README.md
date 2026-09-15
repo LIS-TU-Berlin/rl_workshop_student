@@ -34,7 +34,7 @@ See [README-docker.md](README-docker.md) for the Docker-based setup.
 
 ```bash
 # uv run python scripts/eval.py <tag>
-uv run python scripts/eval.py 260910-174709-disc_push-task3-sbTD3-seed100
+uv run python scripts/eval.py 260910-190202-disc_push-task4-sbTD3-seed100
 ```
 
 ### 2. Train a naive policy
