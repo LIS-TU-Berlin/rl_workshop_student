@@ -51,7 +51,7 @@ uv run python scripts/eval.py 260910-190202-disc_push-task4-sbTD3-seed100 --no-v
 ### 2. Train a naive policy
 ```bash
 # Trains using the sparse reward only
-uv run scripts/train.py configs/disc_push_task0.yaml RL.make_video=false
+uv run scripts/train.py configs/disc_push_task0.yaml RL.T_end=3000 RL.make_video=false
 ```
 
 ### 3. Train using a dense reward function
