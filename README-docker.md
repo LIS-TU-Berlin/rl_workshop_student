@@ -33,7 +33,7 @@ cd rl_workshop_student
    ```
 3. Verify the installation
 ```bash
-uv run pytest tests/test_installation_smoke.py
+uv run pytest tests/test_docker_smoke.py
 ```
 
 ## Training and Evaluation

@@ -43,7 +43,7 @@ Gym:
 RL:
   RL_method: sbTD3
   fixed_goal: false
-  starts_goals_fct_name: getStartsGoals_curriculum
+  starts_goals_fct_name: getStartsGoals_random
   T_block: 3000
   T_curr: 15000
   T_end: 60000
