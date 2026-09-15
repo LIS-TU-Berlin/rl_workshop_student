@@ -1,0 +1,6 @@
+# task 0: push the object to a fixed goal, sparse reward, no shaping.
+base: configs/disc_push.yaml
+task: 'task0'
+
+Gym:
+  reward_fct_name: 'reward_fct_sparse'

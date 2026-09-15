@@ -1,0 +1,49 @@
+[project]
+name = "rl-workshop"
+version = "0.1.0"
+description = "Disc-pushing RL exercise: MuJoCo + Gymnasium + stable-baselines3"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "Pillow>=10.0",
+    "gymnasium>=0.29",
+    "gymnasium-robotics>=1.4.0",
+    "mujoco>=3.1.0",
+    "omegaconf>=2.3",
+    "stable-baselines3>=2.3",
+    "torch>=2.0",
+    "mujoco-warp>=0.1.0",
+    "warp-lang>=1.0.0",
+    "tensorboard>=2.21.0",
+    "robotic>=0.4.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+# CPU-only workshop (see README/CPU threads section) -- pin torch to PyTorch's CPU-only
+# wheel index so uv doesn't resolve the default (CUDA-bundled) PyPI wheel, which drags in
+# a full nvidia/cuda-toolkit/triton stack nobody here needs.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rl_workshop*"]
+namespaces = true
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

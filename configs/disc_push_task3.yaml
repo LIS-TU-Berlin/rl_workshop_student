@@ -1,0 +1,15 @@
+# task 3: push the object to a random goal, sparse reward, with a curriculum reset schedule
+# but with finger starting near the object
+base: configs/disc_push.yaml
+task: 'task3'
+
+Gym:
+  reward_fct_name: 'reward_fct_sparse'
+
+RL:
+  fixed_goal: false
+  starts_goals_fct_name: 'getStartsGoals_curriculum'
+  T_curr: 15000
+  T_block: 3000
+  T_end: 35000
+

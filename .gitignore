@@ -1,0 +1,12 @@
+__pycache__/
+*.egg-info
+.venv/
+runs/
+tensorboard/
+tmp*
+z.*
+*~
+.vscode/
+slides/*
+!slides/slides.tex
+*.tar

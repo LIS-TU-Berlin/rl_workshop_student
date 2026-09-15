@@ -1,0 +1,7 @@
+# task 2: push the object to a fixed goal, dense reward with "hit, don't push" velocity shaping.
+base: configs/disc_push.yaml
+task: 'task2'
+
+Gym:
+  reward_fct_name: 'reward_fct_dense2'
+  w_hit: 0.05

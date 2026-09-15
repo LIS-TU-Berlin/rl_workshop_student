@@ -1,0 +1,6 @@
+# task 1: push the object to a fixed goal, dense reward with distance/robot-object shaping.
+base: configs/disc_push.yaml
+task: 'task1'
+
+Gym:
+  reward_fct_name: 'reward_fct_dense1'

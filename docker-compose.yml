@@ -1,0 +1,27 @@
+services:
+  workshop:
+    build: .
+    # fixed name (rather than the folder-name-derived default) so a pre-built image
+    # (docker save/load) is found regardless of what the checkout folder is called
+    image: rl-workshop:latest
+    # force x86_64: `robotic` (rai/ry bindings) has no native arm64 Linux wheel, so this
+    # matters on Apple Silicon Macs -- Docker Desktop emulates it (slower, but works)
+    platform: linux/amd64
+    volumes:
+      - .:/workspace
+      # venv lives outside /workspace (see Dockerfile's UV_PROJECT_ENVIRONMENT) so it can
+      # never collide with the host's own .venv/ via the bind mount above; named volumes so
+      # re-syncing (e.g. after `docker compose down -v`) doesn't redownload everything
+      - venv:/opt/venv
+      - uv-cache:/root/.cache/uv
+    ports:
+      - "6006:6006" # tensorboard --logdir tensorboard/
+    stdin_open: true
+    tty: true
+    # re-sync in case the .venv volume is fresh or uv.lock changed since the image was built,
+    # then drop into an interactive shell
+    command: sh -c "uv sync --frozen && bash"
+
+volumes:
+  venv:
+  uv-cache:

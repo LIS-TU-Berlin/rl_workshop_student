@@ -1,0 +1,15 @@
+# task 4: random goal, sparse reward, curriculum but with a fully random
+# manipulator start at full difficulty, instead of always staying near the object.
+base: configs/disc_push.yaml
+task: 'task4'
+
+Gym:
+  reward_fct_name: 'reward_fct_sparse'
+
+RL:
+  fixed_goal: false
+  starts_goals_fct_name: 'getStartsGoals_curriculum'
+  finger_start_mode: 'random'
+  T_curr: 15000
+  T_block: 3000
+  T_end: 50000
